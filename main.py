@@ -13,9 +13,9 @@ from service.github_service import add_github_permission
 
 app = FastAPI()
 
-@app.get("/add/{email}")
-async def add_test(email: str):
-   return await add_github_permission(email)
+# @app.get("/add/{email}")
+# async def add_test(email: str):
+#    return await add_github_permission(email)
 
 
 @app.post("/sale/")
