@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import os
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Form, Response
 import uvicorn
 
 from service.github_service import add_github_permission
@@ -20,7 +20,11 @@ app = FastAPI()
 
 @app.post("/sale/")
 async def post_sale(product_id: str = Form(...), email: str = Form(...)):
-   return await add_github_permission(email, product_id)
+   try:
+    return await add_github_permission(email, product_id)
+   except Exception as error:
+      print(error)
+      return Response(status_code=500, content=str(error))
 
 
 if __name__ == '__main__':
