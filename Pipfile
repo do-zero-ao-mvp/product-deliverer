@@ -9,6 +9,7 @@ uvicorn = {extras = ["standard"], version = "*"}
 pygithub = "*"
 python-dotenv = "*"
 python-multipart = "*"
+pandoc = "*"
 
 [dev-packages]
 

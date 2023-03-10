@@ -6,7 +6,7 @@ from github import Github
 async def add_github_permission(user_email: str, product_id: str):
     product_id_env = os.environ["PRODUCT_ID"]
     
-    if product_id != product_id_env:
+    if product_id == product_id_env:
         g = Github(os.environ["GITHUB_TOKEN"])
 
         result = []
